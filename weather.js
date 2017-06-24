@@ -22,7 +22,7 @@ exports.weather = function(loc, callback){
                 speed = wind.speed,
                 today = results.item.condition;
 
-            let description = 'Hurricane';
+            let description;
             if (speed < 1){
                 description = 'Calm';
             } else if (speed < 4) {
@@ -47,6 +47,8 @@ exports.weather = function(loc, callback){
                 description = 'Storm';
             } else if (speed < 64){
                 description = 'Violent storm';
+            } else {
+                description = 'Hurricane';
             }
 
             callback(null, {
